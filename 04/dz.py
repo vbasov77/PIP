@@ -35,7 +35,7 @@ lst = get_lst(num)
 print(lst)
 print (get_sum(lst))
 
-class Tsequence(unittest.TestCase):
+class TestTsequence(unittest.TestCase):
 
     def test_get_lst(self):
         self.assertEqual(get_lst(3),
