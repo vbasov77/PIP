@@ -17,11 +17,13 @@ with open(path, 'w') as data:
     data.write('5\n')
     data.write('2\n')
 
+
 def get_lst(n):
     lst = []
     for i in range(-n, n + 1):
         lst.append(i)
     return lst
+
 
 def get_data_from_file(path):
     data = open(path, 'r')
@@ -29,18 +31,37 @@ def get_data_from_file(path):
     data.close()
     return dlst
 
+
 def get_mult(numbers, datalst):
     mult = 1
     for i in datalst:
         mult *= numbers[i]
     return mult
 
+
 n = 3
 datalst = get_data_from_file(path)
 lst = get_lst(n)
 
-# print(lst)
-# print(datalst)
-# print(get_mult(lst, datalst))
+print(lst)
+print(datalst)
+print(get_mult(lst, datalst))
+
+
 
 class TestСomposition(unittest.TestCase):
+
+    def test_get_lst(self):
+        self.assertEqual(get_lst(3),
+                         ([-3, -2, -1, 0, 1, 2, 3]))
+
+    def test_get_data_from_file(self):
+        self.assertEqual(get_data_from_file('file.txt'),
+                         ([4, 5, 2]))
+
+    def test_get_mult(self):
+        self.assertEqual(get_mult([-3, -2, -1, 0, 1, 2, 3], [4, 5, 2]),
+                         (-2))
+
+if __name__ == '__main__':
+    unittest.main()
